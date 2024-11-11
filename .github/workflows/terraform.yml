@@ -13,7 +13,7 @@ jobs:
       run: wget -O terraform.zip https://releases.hashicorp.com/terraform/1.5.5/terraform_1.5.5_linux_amd64.zip && unzip terraform.zip && chmod +x terraform && sudo mv terraform /usr/local/bin
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -backend-config="Duc-RG1" -backend-config="storage_account_name=ducleterraformbackend" -backend-config="container_name=terraform-backend" -backend-config="key=terraform.tfstate" -backend-config="access_key=${{ secrets.Access_Key }}"
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
