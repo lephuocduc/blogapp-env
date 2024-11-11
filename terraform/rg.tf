@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg" {
   name     = "Duc-RG2"
-  location = "West Europe"
+  location = "East US"
 
   tags = {
     environment = "Terraform Azure"
