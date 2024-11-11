@@ -1,4 +1,4 @@
-name: Create Kubernetes Cluster
+name: Destroy Kubernetes Cluster
 on: workflow_dispatch
 jobs:
   Deploy-AKS:
