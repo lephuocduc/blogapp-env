@@ -1,14 +1,9 @@
 name: Create Kubernetes Cluster
 on: push
 jobs:
-  deploy-terraform:
+  Deploy-AKS:
     runs-on: ubuntu-latest
-    env:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
+
     defaults:
       run:
         working-directory: ./terraform
@@ -22,3 +17,4 @@ jobs:
 
     - name: Terraform Apply
       run: terraform workspace select ${GITHUB_REF##*/} || terraform workspace new ${GITHUB_REF##*/} && terraform apply -auto-approve -var="branch=${GITHUB_REF##*/}"
+
