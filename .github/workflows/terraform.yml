@@ -20,9 +20,5 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    # Generates an execution plan for Terraform
-    - name: Terraform Plan
-      run: terraform plan -input=false
-
     - name: Terraform Apply
       run: terraform workspace select ${GITHUB_REF##*/} || terraform workspace new ${GITHUB_REF##*/} && terraform apply -auto-approve -var="branch=${GITHUB_REF##*/}"
