@@ -21,7 +21,7 @@ resource "kubernetes_pod" "test" {
   }
 }
 
-resource "kubernetes_pod" "test" {
+resource "kubernetes_pod" "test2" {
   metadata {
     name = "terraform-example2"
   }
