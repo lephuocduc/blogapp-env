@@ -3,6 +3,12 @@ on: push
 jobs:
   deploy-terraform:
     runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
     defaults:
       run:
         working-directory: ./terraform
@@ -10,7 +16,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: setup-terraform
       uses: hashicorp/setup-terraform@v2
-
 
     - name: Terraform Init
       run: terraform init
