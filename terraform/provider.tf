@@ -13,7 +13,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  }
+  } 
 
   ### Service Principle values need to be exported
     #export ARM_CLIENT_ID="5e71b546-1fbb-4723-af47-545d1e190e96"
